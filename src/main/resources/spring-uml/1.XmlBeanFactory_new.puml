@@ -1,0 +1,35 @@
+@startuml
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
+
+skinparam sequence {
+ArrowColor DeepSkyBlue
+ActorBorderColor DeepSkyBlue
+LifeLineBorderColor blue
+LifeLineBackgroundColor #A9DCDF
+
+ParticipantBorderColor DeepSkyBlue
+ParticipantBackgroundColor DodgerBlue
+ParticipantFontName Impact
+ParticipantFontSize 17
+ParticipantFontColor #A9DCDF
+
+ActorBackgroundColor aqua
+ActorFontColor DeepSkyBlue
+ActorFontSize 17
+ActorFontName Aapex
+}
+
+participant Actor
+Actor -> XmlBeanFactory : new
+activate XmlBeanFactory
+XmlBeanFactory -> DefaultListableBeanFactory : new
+activate DefaultListableBeanFactory
+DefaultListableBeanFactory --> XmlBeanFactory
+deactivate DefaultListableBeanFactory
+XmlBeanFactory -> XmlBeanDefinitionReader : loadBeanDefinitions
+activate XmlBeanDefinitionReader
+XmlBeanDefinitionReader --> XmlBeanFactory
+deactivate XmlBeanDefinitionReader
+return
+@enduml

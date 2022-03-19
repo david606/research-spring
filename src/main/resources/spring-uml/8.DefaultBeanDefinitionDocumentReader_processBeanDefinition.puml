@@ -1,0 +1,47 @@
+@startuml
+
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
+
+skinparam sequence {
+ArrowColor DeepSkyBlue
+ActorBorderColor DeepSkyBlue
+LifeLineBorderColor blue
+LifeLineBackgroundColor #A9DCDF
+
+ParticipantBorderColor DeepSkyBlue
+ParticipantBackgroundColor DodgerBlue
+ParticipantFontName Impact
+ParticipantFontSize 17
+ParticipantFontColor #A9DCDF
+
+ActorBackgroundColor aqua
+ActorFontColor DeepSkyBlue
+ActorFontSize 17
+ActorFontName Aapex
+}
+participant Actor
+Actor -> DefaultBeanDefinitionDocumentReader : processBeanDefinition
+activate DefaultBeanDefinitionDocumentReader
+DefaultBeanDefinitionDocumentReader -> BeanDefinitionParserDelegate : parseBeanDefinitionElement
+activate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate --> DefaultBeanDefinitionDocumentReader
+deactivate BeanDefinitionParserDelegate
+DefaultBeanDefinitionDocumentReader -> BeanDefinitionParserDelegate : decorateBeanDefinitionIfRequired
+activate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate --> DefaultBeanDefinitionDocumentReader
+deactivate BeanDefinitionParserDelegate
+DefaultBeanDefinitionDocumentReader -> BeanDefinitionReaderUtils : registerBeanDefinition
+activate BeanDefinitionReaderUtils
+BeanDefinitionReaderUtils --> DefaultBeanDefinitionDocumentReader
+deactivate BeanDefinitionReaderUtils
+DefaultBeanDefinitionDocumentReader -> ReaderContext : error
+activate ReaderContext
+ReaderContext --> DefaultBeanDefinitionDocumentReader
+deactivate ReaderContext
+DefaultBeanDefinitionDocumentReader -> ReaderContext : fireComponentRegistered
+activate ReaderContext
+ReaderContext --> DefaultBeanDefinitionDocumentReader
+deactivate ReaderContext
+return
+@enduml

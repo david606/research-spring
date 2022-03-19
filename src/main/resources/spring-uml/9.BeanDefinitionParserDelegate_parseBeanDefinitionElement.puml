@@ -1,0 +1,91 @@
+@startuml
+
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
+
+skinparam sequence {
+ArrowColor DeepSkyBlue
+ActorBorderColor DeepSkyBlu
+LifeLineBorderColor blue
+LifeLineBackgroundColor #A9DCDF
+
+ParticipantBorderColor DeepSkyBlue
+ParticipantBackgroundColor DodgerBlue
+ParticipantFontName Impact
+ParticipantFontSize 17
+ParticipantFontColor #A9DCDF
+
+ActorBackgroundColor aqua
+ActorFontColor DeepSkyBlue
+ActorFontSize 17
+ActorFontName Aapex
+}
+participant Actor
+Actor -> BeanDefinitionParserDelegate : parseBeanDefinitionElement
+activate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate -> BeanDefinitionParserDelegate : checkNameUniqueness
+activate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate -> BeanDefinitionParserDelegate : error
+activate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate --> BeanDefinitionParserDelegate
+deactivate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate --> BeanDefinitionParserDelegate
+deactivate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate -> BeanDefinitionParserDelegate : parseBeanDefinitionElement
+activate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate -> BeanDefinitionParserDelegate : createBeanDefinition
+activate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate --> BeanDefinitionParserDelegate
+deactivate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate -> BeanDefinitionParserDelegate : parseBeanDefinitionAttributes
+activate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate --> BeanDefinitionParserDelegate
+deactivate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate -> BeanDefinitionParserDelegate : parseMetaElements
+activate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate --> BeanDefinitionParserDelegate
+deactivate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate -> BeanDefinitionParserDelegate : parseLookupOverrideSubElements
+activate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate --> BeanDefinitionParserDelegate
+deactivate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate -> BeanDefinitionParserDelegate : parseReplacedMethodSubElements
+activate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate --> BeanDefinitionParserDelegate
+deactivate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate -> BeanDefinitionParserDelegate : parseConstructorArgElements
+activate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate --> BeanDefinitionParserDelegate
+deactivate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate -> BeanDefinitionParserDelegate : parsePropertyElements
+activate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate --> BeanDefinitionParserDelegate
+deactivate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate -> BeanDefinitionParserDelegate : parseQualifierElements
+activate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate --> BeanDefinitionParserDelegate
+deactivate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate -> BeanDefinitionParserDelegate : extractSource
+activate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate --> BeanDefinitionParserDelegate
+deactivate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate -> BeanDefinitionParserDelegate : error
+activate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate --> BeanDefinitionParserDelegate
+deactivate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate -> BeanDefinitionParserDelegate : error
+activate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate --> BeanDefinitionParserDelegate
+deactivate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate -> BeanDefinitionParserDelegate : error
+activate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate --> BeanDefinitionParserDelegate
+deactivate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate --> BeanDefinitionParserDelegate
+deactivate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate -> BeanDefinitionParserDelegate : error
+activate BeanDefinitionParserDelegate
+BeanDefinitionParserDelegate --> BeanDefinitionParserDelegate
+deactivate BeanDefinitionParserDelegate
+return
+@enduml

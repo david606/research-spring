@@ -1,0 +1,47 @@
+@startuml
+
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
+
+skinparam sequence {
+ArrowColor DeepSkyBlue
+ActorBorderColor DeepSkyBlue
+LifeLineBorderColor blue
+LifeLineBackgroundColor #A9DCDF
+
+ParticipantBorderColor DeepSkyBlue
+ParticipantBackgroundColor DodgerBlue
+ParticipantFontName Impact
+ParticipantFontSize 17
+ParticipantFontColor #A9DCDF
+
+ActorBackgroundColor aqua
+ActorFontColor DeepSkyBlue
+ActorFontSize 17
+ActorFontName Aapex
+}
+participant Actor
+Actor -> XmlBeanDefinitionReader : registerBeanDefinitions
+activate XmlBeanDefinitionReader
+XmlBeanDefinitionReader -> XmlBeanDefinitionReader : createBeanDefinitionDocumentReader
+activate XmlBeanDefinitionReader
+XmlBeanDefinitionReader -> BeanUtils : instantiateClass
+activate BeanUtils
+BeanUtils --> XmlBeanDefinitionReader
+deactivate BeanUtils
+XmlBeanDefinitionReader --> XmlBeanDefinitionReader
+deactivate XmlBeanDefinitionReader
+XmlBeanDefinitionReader -> XmlBeanDefinitionReader : createReaderContext
+activate XmlBeanDefinitionReader
+XmlBeanDefinitionReader --> XmlBeanDefinitionReader
+deactivate XmlBeanDefinitionReader
+XmlBeanDefinitionReader -> BeanDefinitionDocumentReader : registerBeanDefinitions
+activate BeanDefinitionDocumentReader
+BeanDefinitionDocumentReader -> DefaultBeanDefinitionDocumentReader : registerBeanDefinitions
+activate DefaultBeanDefinitionDocumentReader
+DefaultBeanDefinitionDocumentReader --> BeanDefinitionDocumentReader
+deactivate DefaultBeanDefinitionDocumentReader
+BeanDefinitionDocumentReader --> XmlBeanDefinitionReader
+deactivate BeanDefinitionDocumentReader
+return
+@enduml

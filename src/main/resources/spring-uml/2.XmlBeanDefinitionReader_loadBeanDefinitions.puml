@@ -1,0 +1,59 @@
+@startuml
+
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
+
+skinparam sequence {
+ArrowColor DeepSkyBlue
+ActorBorderColor DeepSkyBlue
+LifeLineBorderColor blue
+LifeLineBackgroundColor #A9DCDF
+
+ParticipantBorderColor DeepSkyBlue
+ParticipantBackgroundColor DodgerBlue
+ParticipantFontName Impact
+ParticipantFontSize 17
+ParticipantFontColor #A9DCDF
+
+ActorBackgroundColor aqua
+ActorFontColor DeepSkyBlue
+ActorFontSize 17
+ActorFontName Aapex
+}
+participant Actor
+Actor -> XmlBeanDefinitionReader : loadBeanDefinitions
+activate XmlBeanDefinitionReader
+XmlBeanDefinitionReader -> XmlBeanDefinitionReader : loadBeanDefinitions
+activate XmlBeanDefinitionReader
+XmlBeanDefinitionReader -> Assert : notNull
+activate Assert
+Assert --> XmlBeanDefinitionReader
+deactivate Assert
+XmlBeanDefinitionReader -> Log : trace
+activate Log
+Log --> XmlBeanDefinitionReader
+deactivate Log
+XmlBeanDefinitionReader -> ThreadLocal : get
+activate ThreadLocal
+ThreadLocal --> XmlBeanDefinitionReader
+deactivate ThreadLocal
+XmlBeanDefinitionReader -> Set : add
+activate Set
+Set --> XmlBeanDefinitionReader
+deactivate Set
+XmlBeanDefinitionReader -> XmlBeanDefinitionReader : doLoadBeanDefinitions
+activate XmlBeanDefinitionReader
+XmlBeanDefinitionReader --> XmlBeanDefinitionReader
+deactivate XmlBeanDefinitionReader
+XmlBeanDefinitionReader -> Set : remove
+activate Set
+Set --> XmlBeanDefinitionReader
+deactivate Set
+XmlBeanDefinitionReader -> ThreadLocal : remove
+activate ThreadLocal
+ThreadLocal --> XmlBeanDefinitionReader
+deactivate ThreadLocal
+XmlBeanDefinitionReader --> XmlBeanDefinitionReader
+deactivate XmlBeanDefinitionReader
+return
+@enduml
